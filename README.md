@@ -1,6 +1,6 @@
 # API Rest Task Collection
 
-This app it's a Rest API project for the *Business Applications Course* and it's build with Express, Typescript and Prisma. It's an app to task management and if you want to try it go to this [link](https://daniela-aedo-eva3.herokuapp.com/api/v1/info).
+This app it's a Rest API project for the *Business Applications Course* and it's build with Express, Typescript and Prisma. It's an app to task management and if you want to try it go to this [link](https://eva3-daniela-aedo.herokuapp.com/api/v1/info).
 
 ## Prerequisites
 
