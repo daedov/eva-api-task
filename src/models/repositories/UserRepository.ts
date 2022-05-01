@@ -6,11 +6,7 @@ const prisma = new PrismaClient()
 export default class UserRepository {
   public readonly findAll = async (): Promise<UserDTO[]> => {
     const users = await prisma.user.findMany()
-    const usersWithoutPassword = users.map(user => {
-      const { password, ...userWithoutPassword } = user
-      return userWithoutPassword
-    })
-    return usersWithoutPassword
+    return users
   }
 
   public readonly findById = async (id: number): Promise<UserDTO | undefined> => {
@@ -19,11 +15,8 @@ export default class UserRepository {
         id
       }
     })
-  
     if (!user) return
-    
-    const { password, ...userWithoutPassword } = user
-    return userWithoutPassword
+    return user
   }
   
   public readonly findByEmail = async (email: string): Promise<LoginUserDTO | undefined>  => {
@@ -32,9 +25,7 @@ export default class UserRepository {
         email
       }
     })
-  
     if (!user) return
-    
     return user
   }
   
@@ -42,8 +33,7 @@ export default class UserRepository {
     const newUser = await prisma.user.create({
       data: user
     })
-    const { password, ...userWithoutPassword } = newUser
-    return userWithoutPassword
+    return newUser
   }
 }
 
